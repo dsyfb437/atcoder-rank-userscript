@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AtCoder 多场排名筛选</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.65 "Inter", "Microsoft YaHei", sans-serif; color: #20282d; background: #f4f6f5; }
+    body { max-width: 43rem; margin: 0 auto; padding: clamp(1.25rem, 5vw, 4rem) 1.25rem; }
+    h1 { font-size: clamp(1.65rem, 5vw, 2.6rem); line-height: 1.2; margin: 0 0 .75rem; }
+    p { margin: .7rem 0; }
+    main { background: #fff; border: 1px solid #d9e2de; border-radius: 14px; padding: clamp(1.1rem, 5vw, 2.4rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0; }
+    .actions a { padding: .6rem .95rem; border-radius: 7px; color: #114c43; border: 1px solid #aec9c0; text-decoration: none; font-weight: 600; }
+    .actions a:first-child { color: #fff; background: #16584d; border-color: #16584d; }
+    h2 { font-size: 1.125rem; margin: 1.45rem 0 .45rem; }
+    ol { padding-left: 1.45rem; margin: .45rem 0; }
+    li + li { margin-top: .4rem; }
+    a { color: #145c51; }
+    a:focus-visible { outline: 3px solid #297f71; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AtCoder 多场排名筛选</h1>
+    <p>给每场比赛填一个名次区间，找出同时符合条件的选手，再把名单导出为 TXT。</p>
+    <div class="actions">
+      <a href="./atcoder-ranking-filter.user.js">安装或更新脚本</a>
+      <a href="https://atcoder.jp/contests/abc466/standings">打开示例榜单</a>
+    </div>
+    <h2>在哪儿操作</h2>
+    <ol>
+      <li>用 Tampermonkey 或 Violentmonkey 安装上面的脚本。</li>
+      <li>在浏览器登录 AtCoder，打开任意一场比赛的榜单。</li>
+      <li>榜单页会显示「多场排名筛选」面板。填比赛 ID 和名次，点击「筛选交集」。</li>
+    </ol>
+    <p>脚本沿用 AtCoder 当前登录会话，名单在浏览器中生成。<a href="https://github.com/dsyfb437/atcoder-rank-userscript">查看源码</a></p>
+  </main>
+</body>
+</html>

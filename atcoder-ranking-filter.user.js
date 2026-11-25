@@ -2,7 +2,7 @@
 // @name         AtCoder 多场排名筛选
 // @name:en      AtCoder Multi-contest Rank Filter
 // @namespace    https://azusaaa.com/
-// @version      1.0.0
+// @version      1.1.0
 // @description  筛选同时满足多场 AtCoder 比赛排名区间的用户，并导出名单。
 // @description:en Find users whose standings ranks match a range in every selected contest.
 // @match        https://atcoder.jp/contests/*/standings*
@@ -83,17 +83,21 @@
   }
 
   const root = element('section', { id: 'azusa-ranking-filter', className: 'panel panel-default' });
-  const content = element('div', { className: 'panel-body', hidden: true });
-  const toggle = button('多场排名筛选', 'default');
+  const content = element('div', { className: 'panel-body' });
+  const title = element('h2', { id: 'azusa-ranking-filter-title', className: 'panel-title' }, '多场排名筛选');
+  const toggle = button('收起', 'default btn-xs');
+  root.setAttribute('aria-labelledby', title.id);
   content.id = 'azusa-ranking-filter-body';
   toggle.setAttribute('aria-controls', content.id);
-  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-expanded', 'true');
   toggle.addEventListener('click', () => {
     content.hidden = !content.hidden;
+    toggle.textContent = content.hidden ? '展开' : '收起';
     toggle.setAttribute('aria-expanded', String(!content.hidden));
   });
   const heading = element('div', { className: 'panel-heading' });
-  heading.append(toggle);
+  heading.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:8px';
+  heading.append(title, toggle);
   const form = element('form');
   const rows = element('div');
   const add = button('添加比赛', 'default');
@@ -119,7 +123,7 @@
   function addRow(id = '') {
     const row = element('div', { className: 'form-group' });
     const remove = button('移除', 'default');
-    row.style.cssText = 'display:grid;grid-template-columns:minmax(7em, 1fr) repeat(2, minmax(3em, 7em)) auto;gap:6px';
+    row.style.cssText = 'display:grid;grid-template-columns:minmax(0, 1fr) minmax(3em, 6em) minmax(3em, 6em) auto;gap:6px';
     row.append(
       input('contest', '比赛 ID 或链接', id),
       numberInput('min', '起始名次', '1'),
